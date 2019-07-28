@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, url_for
 from flask_cors import CORS
 
 import uuid
-import os
+import time
 import subprocess
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ api = Api(app)
 def look_busy():
     n = request.args.get("n", default=None, type=int)
 
-    os.sleep(n)
+    time.sleep(n)
 
     return jsonify({
         "n": n,
